@@ -1,7 +1,7 @@
 const contributorsList = document.getElementById('contributors-list');
 
 // Fetch the GitHub contributors list
-fetch('http://api.github.com/repos/tewedaj/phexpress/contributors')
+fetch('https://api.github.com/repos/tewedaj/phexpress/contributors')
   .then(response => response.json())
   .then(contributors => {
     contributors.forEach(contributor => {
