@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Code Snippet Comparison</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" />
+  <link rel="stylesheet" href="./style/style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+
+
+</head>
+
+<body style="background: #01001D;">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Snippets</a></li>
+        <li><a href="#">Example Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <h1 style="color:white">PHExpress Vs Node Express</h1>
+
+    <div class="code-wrapper">
+      <pre style="border-radius:15px; margin:10px" class="language-javascript">
+        <code>
+         
+          $app = new phexpress();
+          $app->setParent("student");
+      
+          $app->get("/get", function($req,$res){
+          $res->send(200,"Hellow World");
+          });
+</code>
+      </pre>
+
+      <pre style="border-radius:15px; margin:10px" class="language-javascript">
+        <code>
+          const express = require('express')
+          const app = express()
+          const port = 3000
+          
+          app.get('/', (req, res) => {
+            res.send('Hello World!')
+          })
+          
+          app.listen(port, () => {
+            console.log(`listening on port ${port}`)
+          })</code>
+      </pre>
+    </div>
+  </div>
+  <div id="contributors-list"></div>
+
+  <script src="./scripts/script.js"></script>
+</body>
+
+</html>
