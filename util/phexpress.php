@@ -47,7 +47,11 @@ class phexpress
 
                 if (count($variables) > 1) {
                     $matches = array();
-                    $finalUri = str_replace("PHExpress/", "", $path3[0]);
+                    $finalUri = $path3[0];
+                    //if you hosted the project inside a folder instead of root
+                    //uncomment the below line 
+                    //add your folder name instead of <FolderName>
+                    // $finalUri = str_replace("FolderName/", "", $path3[0]);
                     $finalUri = rtrim($finalUri, "/");
 
 
@@ -101,7 +105,11 @@ class phexpress
 
                 if (count($variables) > 1) {
                     $matches = array();
-                    $finalUri = str_replace("PHExpress/", "", $path3[0]);
+                    $finalUri = $path3[0];
+                    //if you hosted the project inside a folder instead of root
+                    //uncomment the below line 
+                    //add your folder name instead of <FolderName>
+                    // $finalUri = str_replace("FolderName/", "", $path3[0]);
                     $finalUri = rtrim($finalUri, "/");
 
 
@@ -149,7 +157,11 @@ class phexpress
 
                 if (count($variables) > 1) {
                     $matches = array();
-                    $finalUri = str_replace("PHExpress/", "", $path3[0]);
+                    $finalUri = $path3[0];
+                    //if you hosted the project inside a folder instead of root
+                    //uncomment the below line 
+                    //add your folder name instead of <FolderName>
+                    // $finalUri = str_replace("FolderName/", "", $path3[0]);
                     $finalUri = rtrim($finalUri, "/");
 
 
@@ -198,7 +210,11 @@ class phexpress
 
                 if (count($variables) > 1) {
                     $matches = array();
-                    $finalUri = str_replace("PHExpress/", "", $path3[0]);
+                    $finalUri = $path3[0];
+                    //if you hosted the project inside a folder instead of root
+                    //uncomment the below line 
+                    //add your folder name instead of <FolderName>
+                    // $finalUri = str_replace("FolderName/", "", $path3[0]);
                     $finalUri = rtrim($finalUri, "/");
 
 

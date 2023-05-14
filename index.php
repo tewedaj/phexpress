@@ -27,8 +27,11 @@ $settings["modelController"] ? include "./db/initialize.php" : "";
 //this will create all the tables if they don't exist
 
 cors();
+
+
+
 //Route imports
-  
+include "./routes/Dev.php";  
  
  
    
