@@ -1,5 +1,6 @@
 <?php
-
+//this is an example model.
+//Remove it before you create your own
 class Dev{
 
     private int $id;

@@ -32,10 +32,3 @@ cors();
  
  
    
- include "./routes/Glucose.php"; 
- include "./routes/Student.php"; 
- include "./routes/TestModel2.php"; 
- include "./routes/Tracker.php"; 
- include "./routes/User.php"; 
- include "./routes/Dev.php"; 
- include "./routes/Emri.php";  
