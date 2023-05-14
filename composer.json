@@ -1,0 +1,15 @@
+{
+    "name": "phexpress/phexpress",
+    "description": "Rest API Framework designed to look and feel like node.js Express , it has a crazy vs code extension support to make development 10x faster",
+    "type": "library",
+    "version": "1.0.0",
+    "license": "MIT",
+		"require": {
+    },
+		"authors": [
+	    {
+	      "name": "Tewedaj_Getahun",
+	      "email": "tewedaj13@gmail.com"
+	    }
+		]
+}
