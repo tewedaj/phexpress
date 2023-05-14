@@ -14,7 +14,7 @@ PHExpress is a lightweight and flexible API framework built using PHP. It provid
 
 To get started with PHExpress, follow these steps:
 
-1. Install PHExpress: PHExpress can be installed using Composer, the PHP package manager. Simply run `composer create-project phexpress/phexpress <project_name>   to create a new PHExpress project.
+1. Install PHExpress: PHExpress can be installed using Composer, the PHP package manager. Simply run `composer create-project phexpress/phexpress <project_name>`   to create a new PHExpress project.
 
 2. Create a new PHP file: Create a new PHP file in your project directory and include the following code:
 
