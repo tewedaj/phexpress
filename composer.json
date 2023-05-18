@@ -2,7 +2,7 @@
     "name": "phexpress/phexpress",
     "description": "Rest API Framework inspired by node.js Express, designed with a similar look and feel. It offers extensive VS Code extension support, enabling accelerated development with a 10x productivity boost!",
     "type": "library",
-    "version": "1.0.1-stable",
+    "version": "1.0.2-stable",
     "license": "MIT",
 		"require": {
             "php": "^8.1.5"
