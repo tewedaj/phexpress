@@ -1,28 +1,56 @@
 <?php
+// Path: util\helpers\jwt\jwt.php
+// This class generates jwt tokens and decodes them
+// it will be directly used in the user model
+class jwt
+{
 
+    function generateJwt($id, $user_name, $user_type)
+    {
+        $header = [
+            'alg' => 'HS256',
+            'typ' => 'JWT'
+        ];
+        $header = json_encode($header);
+        $header = base64_encode($header);
+        $header = str_replace(['+', '/', '='], ['-', '_', ''], $header);
+        $payload = [
+            'iss' => 'localhost',
+            'aud' => 'localhost',
+            'iat' => time(),
+            'nbf' => time(),
+            'exp' => time() + 60,
+            'data' => [
+                'id' => $id,
+                'user_name' => $user_name,
+                'user_type' => $user_type
+            ]
+        ];
+        $payload = json_encode($payload);
+        $payload = base64_encode($payload);
+        $payload = str_replace(['+', '/', '='], ['-', '_', ''], $payload);
+        $signature = hash_hmac('sha256', "$header.$payload", 'reter', true);
+        $signature = base64_encode($signature);
+        $signature = str_replace(['+', '/', '='], ['-', '_', ''], $signature);
+        $token = "$header.$payload.$signature";
+        return $token;
+    }
 
+    function decodeJwt($token)
+    {
+        $token = explode('.', $token);
+        $header = $token[0];
+        $payload = $token[1];
+        $signature = $token[2];
+        $dehash = hash_hmac('sha256', "$header.$payload", 'reter', true);
+        $dehash = base64_encode($dehash);
+        $dehash = str_replace(['+', '/', '='], ['-', '_', ''], $dehash);
+        if ($dehash == $signature) {
+            $payload = base64_decode($payload);
 
-
-
-
-
-
-
-/*
-
-
-To generate a JWT token, the following steps are typically followed:
-
-Create a JSON object containing the claims (payload) you want to include in the token. The claims typically include information about the user, such as the user ID, username, and email.
-
-Encode the JSON object using Base64Url encoding. This creates the second part of the JWT, which is called the payload.
-
-Create the header of the JWT, which contains information about the type of token and the algorithm used to sign it. The header is also encoded using Base64Url encoding.
-
-Combine the encoded header and payload, and sign the result using a secret key and the algorithm specified in the header. The result is the third part of the JWT, which is called the signature.
-
-Concatenate the encoded header, encoded payload, and signature, separated by dots, to create the final JWT token.
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-
-*/
+            return json_encode($payload);
+        } else {
+            return "Invalid Token";
+        }
+    }
+}

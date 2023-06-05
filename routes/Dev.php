@@ -4,7 +4,10 @@
  
     
     $app = new phexpress();
-    $app->setParent("Dev");
+    $app->setParent("dev");
+    global $user;
+
+    $app->setValid_user("admin" == $user->user_type);
 
     
     $app->get("/", function ($req, $res) {
@@ -12,7 +15,20 @@
         $DevController->getDev();
     });
      
- 
+    
+    $app->get("/jwt", function ($req, $res) {
+        $jwt = new jwt();
+       $token =  $jwt->generateJwt(1,"John Doe","tews@gmail.com");
+        echo '{
+            "token": "'.$token.'"
+        }';
+        $token = $jwt->decodeJwt($token);
+        echo "<br>";
+        echo '{
+            "decoded": "'.$token.'"
+        }';
+
+    });
  
     
     

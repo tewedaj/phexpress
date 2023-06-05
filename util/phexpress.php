@@ -11,6 +11,7 @@ class phexpress
 {
     private $requests = [];
     private $parent;
+    private $valid_user = true;
 
     function __construct()
     {
@@ -22,9 +23,14 @@ class phexpress
             "params" => []
         ];
     }
+    
+    public function setValid_user($validity){
+        $this->valid_user = $validity;
+    }
 
     public function Get(String $routes, $callBack)
     {
+        if($this->valid_user){
         $routes = "/".$this->parent.$routes;
         $url = $this->requests["url"];
 
@@ -73,6 +79,7 @@ class phexpress
                 }
             }
         }
+     }
     }
 
 
@@ -83,6 +90,7 @@ class phexpress
 
     public function Post(String $routes, $callBack)
     {
+        if($this->valid_user){
         $routes = "/".$this->parent.$routes;
         $url = $this->requests["url"];
 
@@ -132,9 +140,11 @@ class phexpress
             }
         }
     }
+    }
 
     public function Patch(String $routes, $callBack)
     {
+        if($this->valid_user){
         $routes = "/".$this->parent.$routes;
         $url = $this->requests["url"];
 
@@ -184,10 +194,12 @@ class phexpress
             }
         }
     }
+    }
 
 
     public function Delete(String $routes, $callBack)
     {
+        if($this->valid_user){
         $routes = "/".$this->parent.$routes;
         $url = $this->requests["url"];
 
@@ -236,6 +248,8 @@ class phexpress
                 }
             }
         }
+
+    }
     }
 
 
