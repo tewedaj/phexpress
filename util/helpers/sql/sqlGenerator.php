@@ -112,7 +112,7 @@ class ORM
             $date2 = new DateTime($data["invalidateTime"]);
             $interval = $date1->diff($date2);
             if ($interval->days > 0) {
-                echo json_encode($data["data"]);
+                return json_encode($data["data"]);
             } else {
                 $query = "SELECT * FROM " . $tableName . "  WHERE " . $condition;
                 global $db;
@@ -126,7 +126,7 @@ class ORM
                 $cache->setInvalidateTime($invalidateDate);
                 $cache->setData(json_encode($allResponse));
                 createCache($tableName . "_" . $trimedCondition, $cache);
-                echo json_encode($allResponse);
+                return json_encode($allResponse);
             }
         } else {
             $query = "SELECT * FROM " . $tableName . "  WHERE " . $condition;
@@ -140,7 +140,7 @@ class ORM
             $cache->setInvalidateTime($invalidateDate);
             $cache->setData(json_encode($allResponse));
             createCache($tableName . "_" . $trimedCondition, $cache);
-            echo json_encode($allResponse);
+            return json_encode($allResponse);
         }
     }
 
