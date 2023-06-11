@@ -23,9 +23,10 @@ class user extends jwt{
         if($decoded_token == "Invalid_token"){
 
         }else{
-            $this->id        = $decoded_token["data"]["id"];
-            $this->user_name = $decoded_token["data"]["user_name"];
-            $this->user_type = $decoded_token["data"]["user_type"];
+        
+            $this->setId($decoded_token->data->id);
+            $this->setUser_name($decoded_token->data->user_name);
+            $this->setUser_type($decoded_token->data->user_type);
         }
 
     }

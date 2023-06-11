@@ -38,6 +38,7 @@ class jwt
 
     function decodeJwt($token)
     {
+        $token = str_replace('Bearer ', '', $token);
         $token = explode('.', $token);
         $header = $token[0];
         $payload = $token[1];
@@ -48,7 +49,7 @@ class jwt
         if ($dehash == $signature) {
             $payload = base64_decode($payload);
 
-            return json_encode($payload);
+            return json_decode($payload);
         } else {
             return "Invalid Token";
         }

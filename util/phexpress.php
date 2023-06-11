@@ -11,7 +11,7 @@ class phexpress
 {
     private $requests = [];
     private $parent;
-    private $valid_user = true;
+    private $authorized_user = true;
 
     function __construct()
     {
@@ -24,13 +24,12 @@ class phexpress
         ];
     }
     
-    public function setValid_user($validity){
-        $this->valid_user = $validity;
+    public function setAuthorized_user($validity){
+        $this->authorized_user = $validity;
     }
 
     public function Get(String $routes, $callBack)
     {
-        if($this->valid_user){
         $routes = "/".$this->parent.$routes;
         $url = $this->requests["url"];
 
@@ -41,7 +40,11 @@ class phexpress
             if (count($path3) > 1) {
                 if ($path3[1] == "" || $path3[1] == "/") {
                     $response = new Response();
-                    $callBack($this->requests, $response);
+                    if($this->authorized_user){
+                        $callBack($this->requests, $response);
+                         }else{
+                             $response->send(401,"{\"success\": false, \"message\": \"Unauthorized\"}");
+                         }
                     exit;
                 }
             } else {
@@ -73,11 +76,15 @@ class phexpress
                         }
 
                         $response = new Response();
+                         if($this->authorized_user){
                         $callBack($this->requests, $response);
+                         }else{
+                             $response->send(401,"{\"success\": false, \"message\": \"Unauthorized\"}");
+                         }
                         exit;
                     }
                 }
-            }
+            
         }
      }
     }
@@ -90,7 +97,7 @@ class phexpress
 
     public function Post(String $routes, $callBack)
     {
-        if($this->valid_user){
+      
         $routes = "/".$this->parent.$routes;
         $url = $this->requests["url"];
 
@@ -101,7 +108,11 @@ class phexpress
             if (count($path3) > 1) {
                 if ($path3[1] == "" || $path3[1] == "/") {
                     $response = new Response();
-                    $callBack($this->requests, $response);
+                    if($this->authorized_user){
+                        $callBack($this->requests, $response);
+                         }else{
+                             $response->send(401,"{\"success\": false, \"message\": \"Unauthorized\"}");
+                         }
                     exit;
                 }
             } else {
@@ -133,10 +144,14 @@ class phexpress
                         }
 
                         $response = new Response();
-                        $callBack($this->requests, $response);
+                        if($this->authorized_user){
+                            $callBack($this->requests, $response);
+                             }else{
+                                 $response->send(401,"{\"success\": false, \"message\": \"Unauthorized\"}");
+                             }
                         exit;
                     }
-                }
+                
             }
         }
     }
@@ -144,7 +159,6 @@ class phexpress
 
     public function Patch(String $routes, $callBack)
     {
-        if($this->valid_user){
         $routes = "/".$this->parent.$routes;
         $url = $this->requests["url"];
 
@@ -155,7 +169,11 @@ class phexpress
             if (count($path3) > 1) {
                 if ($path3[1] == "" || $path3[1] == "/") {
                     $response = new Response();
-                    $callBack($this->requests, $response);
+                    if($this->authorized_user){
+                        $callBack($this->requests, $response);
+                         }else{
+                             $response->send(401,"{\"success\": false, \"message\": \"Unauthorized\"}");
+                         }
                     exit;
                 }
             } else {
@@ -187,19 +205,23 @@ class phexpress
                         }
 
                         $response = new Response();
-                        $callBack($this->requests, $response);
+                        if($this->authorized_user){
+                            $callBack($this->requests, $response);
+                             }else{
+                                 $response->send(401,"{\"success\": false, \"message\": \"Unauthorized\"}");
+                             }
                         exit;
                     }
                 }
             }
         }
-    }
+    
     }
 
 
     public function Delete(String $routes, $callBack)
     {
-        if($this->valid_user){
+        
         $routes = "/".$this->parent.$routes;
         $url = $this->requests["url"];
 
@@ -210,7 +232,11 @@ class phexpress
             if (count($path3) > 1) {
                 if ($path3[1] == "" || $path3[1] == "/") {
                     $response = new Response();
-                    $callBack($this->requests, $response);
+                    if($this->authorized_user){
+                        $callBack($this->requests, $response);
+                         }else{
+                             $response->send(401,"{\"success\": false, \"message\": \"Unauthorized\"}");
+                         }
                     exit;
                 }
             } else {
@@ -242,14 +268,18 @@ class phexpress
                         }
 
                         $response = new Response();
-                        $callBack($this->requests, $response);
+                        if($this->authorized_user){
+                            $callBack($this->requests, $response);
+                             }else{
+                                 $response->send(401,"{\"success\": false, \"message\": \"Unauthorized\"}");
+                             }
                         exit;
                     }
                 }
             }
         }
 
-    }
+    
     }
 
 
