@@ -1,111 +1,31 @@
 <?php
-        
-    class UserController extends ORM{
-    
-        private   $request;
-        private   $response;
-    
-        function __construct($req,$res){
-            $this->request = $req;
-            $this->response = $res;
-        }
-    
-        
-    public function getUser(){
-        $response =  $this->getTable("User");
-        // if(is_object($response)){
-            $this->response->send(200,$response);
-        // }else {
-        //     $this->response->send(400,'{"success": false, "message": "Something Went Wrong"}');
-        // }
-    }
-      
- 
+require_once "./model/user.php";
+class userController extends ORM{
 
-        
-     
-     public function getByid(){
-        $response = $this->getTableWhen(" id = '".$this->request["params"]["id"]."' " ,"User");
-        
-            $this->response->send(200,$response);
-        
-    }
-    
-    
-     
-     public function getByusername(){
-        $response = $this->getTableWhen(" user_name = '".$this->request["params"]["username"]."' " ,"User");
-        
-            $this->response->send(200,$response);
-        
-    }
-    
-    
-     
-     public function getBypassword(){
-        $response = $this->getTableWhen(" pass_word = '".$this->request["params"]["password"]."' " ,"User");
-        
-            $this->response->send(200,$response);
-        
-    }
-    
-     
- 
+    private $request;
+    private $response;
 
-        
-        function setUser(){
-             $response = $this->insertInto("User",$this->request["body"]);
-           
-                $this->response->send(200,$response);
-        
-        }
-     
- 
+    function __construct($req,$res){
 
-        
-        public function updateByid(){
-        $response  =   $this->updateWhen(" id = ". $this->request["params"]["id"] ,"User",$this->request["body"]);
-           
-                $this->response->send(200,'{"Success": true , "Message": "Successfully Updated"}');
-           
-        }
-    
-        public function updateByusername(){
-        $response  =   $this->updateWhen(" user_name = ". $this->request["params"]["username"] ,"User",$this->request["body"]);
-           
-                $this->response->send(200,'{"Success": true , "Message": "Successfully Updated"}');
-           
-        }
-    
-        public function updateBypassword(){
-        $response  =   $this->updateWhen(" pass_word = ". $this->request["params"]["password"] ,"User",$this->request["body"]);
-           
-                $this->response->send(200,'{"Success": true , "Message": "Successfully Updated"}');
-           
-        }
-     
- 
-
-        
-        public function removeByid(){
-            $deleteResult = $this->deleteTable(" id = ". $this->request["params"]["id"] ,"User");
-                $this->response->send(200, '{"success": true}');
-          
-        }
-    
-        public function removeByusername(){
-            $deleteResult = $this->deleteTable(" user_name = ". $this->request["params"]["username"] ,"User");
-                $this->response->send(200, '{"success": true}');
-          
-        }
-    
-        public function removeBypassword(){
-            $deleteResult = $this->deleteTable(" pass_word = ". $this->request["params"]["password"] ,"User");
-                $this->response->send(200, '{"success": true}');
-          
-        }
-    
-    
-    
+        $this->request = $req;
+        $this->response = $res;
     }
-        
+
+
+    public function login(){
+        $body = json_decode($this->request["body"]);
+        $body = (array)$body;
+        $user_data = $this->getTableWhen(" user_name = '".$body["user_name"]."' and password = '".$body["password"]."' " ,"user");
+        $user_data = json_decode($user_data,true);
+        if(count($user_data) > 0){
+            $user = new user();
+            $user->setId($user_data[0]["id"]);
+            $user->setUser_name($user_data[0]["user_name"]);
+            $user->setUser_type($user_data[0]["user_type"]);
+            $body = ["success"=> true , "message"=> "Login Successful", "token" => $user->getToken()];
+            $this->response->send(200,json_encode($body));
+        }else {
+            $this->response->send(400,'{"success": false, "message": "Invalid Username or Password"}');
+        }
+    }
+}

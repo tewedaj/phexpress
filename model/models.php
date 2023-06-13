@@ -1,12 +1,6 @@
 <?php
-
+// add the hierarchy  of the data stracture in this file
 
 $models = [
-    "User.php",
-    "Student.php",
-    "Teacher.php",
-    "TestModel2.php",
-    "TestModel3.php",
-    "Tracker.php",
-    "Glucose.php"
+    "user.php"
 ];
