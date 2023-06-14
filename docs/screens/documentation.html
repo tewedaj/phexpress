@@ -5,43 +5,35 @@
   <title>Code Snippet Comparison</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" />
   <link rel="stylesheet" href="../style/style.css" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-
-<style>
-  .navButtons {
-    background-color: transparent;
-     border: none;
-     color: rgb(116, 116, 116);
-     font-size: 14px;
-     font-weight: bold;
-     margin-left: 0px;
-     margin-top: 1px;
-     width: 100%;
-     background-color: rgb(241, 240, 240);
-     height:45px;
-  }
-
-  *{
-    font-family:Arial, Arial;
-    /* font-size: 15px; */
-  }
-  p{
-    font-size: 15px;
-  }
-
-  .navButtons:hover{
-    background-color: rgb(172, 162, 162);
-    color: black;
-  }
-  button{
-    font-size:14px;
-  }
-</style>
+  
 </head>
-
-<body style="background-color: aliceblue; height: 100%; width: 100%; display: flex; flex-direction: column;">
-  <header style=" box-shadow:2px 10px 30px 0 rgba(0,0,0,.42),0 4px 25px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);">
+ <body>
+  <div class="header">
+    <img class="logo" src="../assets/icon.jpg" alt="">
+  
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#" class="active">Documentation</a></li>
+      <li><a href="#">Snippets</a></li>
+      <li><a href="#">Example Projects</a></li>
+    </ul>
+  </div>
+  <div class="mainWrapper">
+    <div class="menuWrapper">
+      <h4>Menu</h4></div>
+    <div class="contentContainer"> <h4>Content</h4></div>
+    <div class="exampleContainer"> <h4>Examples</h4></div>
+  </div>
+  <div class="footer">
+    <h4>Footer</h4>
+  </div>
+ </body>
+<!-- <body class="mainWrapper">
+  <div class="navWrapper">
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
@@ -50,57 +42,60 @@
         <li><a href="#">Example Projects</a></li>
       </ul>
     </nav>
-  </header>
-  <div  style="background-color:transparent; display: flex; flex-direction: row; height: 100%; width:100%">
+  </div>
+  <div style="background-color:transparent; display: flex; flex-direction: row; height: 100%; width:100%">
 
-    <div style=" position: relative; box-shadow:2px 10px 30px 0 rgba(0,0,0,.42),0 4px 25px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2); height: 85%; width:250px; color:red; background-color: white; box-shadow:hwb(from black 20 20 20); ">
-        <button class="navButtons" style="background-color: gray; color:white">Getting Started</button>
-        <button class="navButtons">Routes</button>
-        <button class="navButtons">Get Request</button>
-        <button class="navButtons">Post Request</button>
-        <button class="navButtons">Put Request</button>
-        <button class="navButtons">Delete Request</button>
-        <button class="navButtons">Validation</button>
-        <button class="navButtons">Database</button>
-        <button class="navButtons">Authentication</button>
-        <button class="navButtons">Authorization</button>
-        <button class="navButtons">Pagination</button>
-        <button class="navButtons">File Upload</button>
-        <button class="navButtons">Email</button>
+    <div
+      style=" position: relative; box-shadow:2px 10px 30px 0 rgba(0,0,0,.42),0 4px 25px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2); height: 85%; width:250px; color:red; background-color: white; box-shadow:hwb(from black 20 20 20); ">
+      <button class="navButtons" style="background-color: gray; color:white">Getting Started</button>
+      <button class="navButtons">Routes</button>
+      <button class="navButtons">Get Request</button>
+      <button class="navButtons">Post Request</button>
+      <button class="navButtons">Put Request</button>
+      <button class="navButtons">Delete Request</button>
+      <button class="navButtons">Validation</button>
+      <button class="navButtons">Database</button>
+      <button class="navButtons">Authentication</button>
+      <button class="navButtons">Authorization</button>
+      <button class="navButtons">Pagination</button>
+      <button class="navButtons">File Upload</button>
+      <button class="navButtons">Email</button>
 
     </div>
-    
-    <div style=" width:70%; overflow: scroll; display: flex; margin-top:40px; flex-direction: column;box-shadow: gray 2px 2px 5px; padding:10px;   margin:auto; margin-top:20px; height:550px; position: relative; background-color:rgb(255, 255, 255);">
-    <h1>Getting started</h1>
-    <p style="font-size: 14px; font-family:Arial, Helvetica, sans-serif; text-align: start;">before you get started we need to identify all the necssery Requirements</p>
-    <ul style="font-size: 14px; font-family:Arial, Helvetica, sans-serif;">
-      <li>PHP 8.1 or above should be installed</li>
-      <li>Composer Must be Installed (install Composer )</li>
-      <li>Mysql mustbe installed</li>
-    </ul>  
-   <p>Run the below command to create a new project</p>
-    <div style="  border-radius: 5px;; background-color: rgb(31, 23, 23);  width: 80%; height: 40px;">
-<p style="color:white; margin: 5px;  ">   >   composer create-project phexpress/phexpress awsome-project
-</p>
+
+    <div
+      style=" width:70%; overflow: scroll; display: flex; margin-top:40px; flex-direction: column;box-shadow: gray 2px 2px 5px; padding:10px;   margin:auto; margin-top:20px; height:550px; position: relative; background-color:rgb(255, 255, 255);">
+      <h1>Getting started</h1>
+      <p style="font-size: 14px; font-family:Arial, Helvetica, sans-serif; text-align: start;">before you get started we
+        need to identify all the necssery Requirements</p>
+      <ul style="font-size: 14px; font-family:Arial, Helvetica, sans-serif;">
+        <li>PHP 8.1 or above should be installed</li>
+        <li>Composer Must be Installed (install Composer )</li>
+        <li>Mysql mustbe installed</li>
+      </ul>
+      <p>Run the below command to create a new project</p>
+      <div style="  border-radius: 5px;; background-color: rgb(31, 23, 23);  width: 80%; height: 40px;">
+        <p style="color:white; margin: 5px;  "> > composer create-project phexpress/phexpress awsome-project
+        </p>
       </div>
       <p>After the project is created you can run the below command to navigate to the project and start the server</p>
       <div style="  border-radius: 5px;; background-color: rgb(31, 23, 23);  width: 80%; height: 50px;">
-        <p style="color:white; margin: 5px;  ">  >    cd awsome-project
+        <p style="color:white; margin: 5px;  "> > cd awsome-project
         </p>
-        <p style="color:white; margin: 5px;  ">  >   php -S localhost:3000
+        <p style="color:white; margin: 5px;  "> > php -S localhost:3000
         </p>
-        </div>
-        <p>Now you can open your browser and navigate to localhost:3000 to see the default page</p>
+      </div>
+      <p>Now you can open your browser and navigate to localhost:3000 to see the default page</p>
 
-    <div style="align-self: center; margin: auto; background-color: white;  width: 80%; height: 300px;">
+      <div style="align-self: center; margin: auto; background-color: white;  width: 80%; height: 300px;">
 
+      </div>
     </div>
-  </div>
- 
-  </div>
-  
 
- 
-</body>
+  </div>
+
+
+
+</body> -->
 
 </html>
