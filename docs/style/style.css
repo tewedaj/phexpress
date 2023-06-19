@@ -98,3 +98,39 @@ h4{
    font-size: 16px;
    font-weight: 200;
 }
+
+
+body {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  border-radius: 10px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.code-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.code-wrapper pre {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  flex: 1;
+  overflow-x: auto;
+  font-size: 14px;
+}
